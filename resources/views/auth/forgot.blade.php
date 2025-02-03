@@ -29,30 +29,39 @@
                     <p class="auth-subtitle mb-5">
                         Enter your email to receive a password reset link.
                     </p>
-                    <form action="{{ route('password.email') }}" method="POST">
+                    <form action="{{ route('password.update') }}" method="POST">
                         @csrf
                         {{-- Name --}}
-                        <div class="form-group position-relative has-icon-left mb-4">
+                        {{-- <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" name="name" class="form-control form-control-xl"
                                 placeholder="Enter your full name" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- Email --}}
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="email" name="email" class="form-control form-control-xl"
-                                placeholder="Enter your email" required />
+                                placeholder="Masukkan Email" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>
                         </div>
 
                         {{-- Old password --}}
-                        <div class="form-group position-relative has-icon-left mb-4">
+                        {{-- <div class="form-group position-relative has-icon-left mb-4">
                             <input type="password" name="old_password" class="form-control form-control-xl"
-                                placeholder="Enter your old password" required />
+                                placeholder="Masukan Password Lama" required />
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                        </div> --}}
+
+                        {{-- New Password --}}
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="password" name="password" class="form-control form-control-xl"
+                                placeholder="Masukkan Password Baru" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -60,8 +69,8 @@
 
                         {{-- New Password --}}
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="new_password" class="form-control form-control-xl"
-                                placeholder="Enter your new password" required />
+                            <input type="password" name="password_confirmation" class="form-control form-control-xl"
+                                placeholder="Konfirmasi Password Baru" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

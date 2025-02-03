@@ -8,6 +8,7 @@ use App\Http\Controllers\DepreciationController;
 use App\Http\Controllers\FixedAssetController;
 use App\Http\Controllers\HistoryTransactionController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -36,8 +37,9 @@ Route::middleware('guest')->group(function () {
     Route::get('forgot-password', function () {
         return view('auth.forgot');
     })->name('password.request');
+    Route::post('/forgot-password', [PasswordResetController::class, 'reset'])->name('password.update');
 
-    Route::post('forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
+
 });
 
 Route::middleware('auth')->group(function () {

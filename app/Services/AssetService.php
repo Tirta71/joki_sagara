@@ -75,16 +75,24 @@ class AssetService extends BaseService
             'depreciations',
             'fixedAssets',
             'accumulatedDepreciations',
-        ])->getDataById($id);
+            ])->getDataById($id);
         if (!$asset) {
             throw new ModelNotFoundException('Record not found');
         }
 
-        $asset->category = $asset->categories->name;
-        $asset->location_area = $asset->location->name;
-        $asset->account_fixed_asset = $asset->fixedAssets->name;
-        $asset->depreciation_account = $asset->depreciations->name;
-        $asset->accumulation_depreciation_account = $asset->accumulatedDepreciations->name;
+        if ($asset->non_depreciation == 0) {
+            $asset->category = $asset->categories->name;
+            $asset->location_area = $asset->location->name;
+            $asset->account_fixed_asset = $asset->fixedAssets->name;
+            $asset->depreciation_account = $asset->depreciations->name;
+            $asset->accumulation_depreciation_account = $asset->accumulatedDepreciations->name;
+        } else {
+            $asset->category = $asset->categories->name;
+            $asset->account_fixed_asset = $asset->fixedAssets->name;
+            $asset->location_area = $asset->location->name;
+        }
+
+
 
         return $asset;
     }
@@ -92,6 +100,17 @@ class AssetService extends BaseService
     public function update(string $id, array $data)
     {
         $this->getByID($id);
+        $data['created_by_id'] = Auth::id();
+        $nonDepreciation = $data['non_depreciation'] ?? '0';
+
+        if ($nonDepreciation == '1') {
+            $data['depreciation_account'] = null;
+            $data['accumulated_depreciation_account'] = null;
+            $data['method'] = null;
+        }
+        unset($data['acquisition_date']);
+        unset($data['acquisition_cost']);
+
 
         return AssetRepository::updateDataById($id, $data);
     }

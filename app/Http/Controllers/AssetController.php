@@ -94,10 +94,12 @@ class AssetController extends Controller
             $asset = $this->assetService->getByID($id);
             $assetMasterData = $this->getAssetMasterData();
 
+
             return view('assets.edit', compact('asset') + $assetMasterData);
         } catch (ModelNotFoundException $e) {
             return redirect()->back()->withErrors(['error' => 'Record not found']);
         } catch (\Exception $e) {
+            // dd($e);
             return $this->handleError($e);
         }
     }
@@ -108,11 +110,10 @@ class AssetController extends Controller
             $validated = $request->validated();
             $this->assetService->update($id, $validated);
 
+
             return redirect()->route('assets-sagara.show', $id)->with('status', 'Asset updated successfully');
         } catch (ModelNotFoundException $e) {
             return redirect()->back()->withErrors(['error' => 'Record not found']);
-        } catch (\Exception $e) {
-            return $this->handleError($e);
         }
     }
 
@@ -124,8 +125,6 @@ class AssetController extends Controller
             return redirect()->route('assets-sagara.index')->with('status', 'Asset deleted successfully');
         } catch (ModelNotFoundException $e) {
             return redirect()->back()->withErrors(['error' => 'Record not found']);
-        } catch (\Exception $e) {
-            return $this->handleError($e);
         }
     }
 }

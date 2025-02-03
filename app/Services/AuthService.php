@@ -29,6 +29,7 @@ class AuthService extends BaseService
         return AuthRepository::addNewData($data);
     }
 
+
     public function login(string $email, string $password): bool
     {
         $whereClause = ['email' => $email];
