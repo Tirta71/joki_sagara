@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Create New Fixed Asset</h1>
+    <h1>Buat Aset Tetap Baru</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -28,7 +28,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Fixed Asset</button>
-        <a href="{{ route('fixed_assets.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Buat Aset Tetap</button>
+        <a href="{{ route('fixed_assets.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </x-layouts.dashboard-layout>

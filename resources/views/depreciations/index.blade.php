@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Depreciation Dashboard</h1>
+    <h1>Dashboard Penyusutan</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -13,13 +13,18 @@
             {{ session('error') }}
         </div>
     @endif
-    <a href="{{ route('dashboard') }}">Back</a>
-    <a href="{{ route('depreciations.create') }}" class="btn btn-primary mb-5">Add New Depreciation</a>
+
+
+    <div class="d-flex justify-content-between align-items-cente mb-4">
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary px-4 py-2">Kembali</a>
+        <a href="{{ route('depreciations.create') }}" class="btn btn-primary px-4 py-2">Buat Penyusutan Baru</a>
+    </div>
+ 
     <section class="section">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    Depreciation Table
+                    Tabel Penyusutan
                 </h5>
             </div>
             <div class="card-body">
@@ -36,17 +41,18 @@
                             <tr>
                                 <td>{{ $depreciation->code }}</td>
                                 <td>{{ $depreciation->name }}</td>
+                            
+
                                 <td>
-                                    <a href="{{ route('depreciations.show', $depreciation->id) }}"
-                                        class="btn btn-info">Show</a>
+                                    <a href="{{ route('depreciations.show', $depreciation->id) }}" class="btn btn-outline-primary btn-sm"> <i class="bi bi-eye"></i> </a>
                                     <a href="{{ route('depreciations.edit', $depreciation->id) }}"
-                                        class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('depreciations.destroy', $depreciation->id) }}"
-                                        method="POST" style="display:inline;">
+                                        class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                    <form action="{{ route('depreciations.destroy', $depreciation->id) }}" method="POST"
+                                        style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Are you sure you want to delete this Depreciation?')">Delete</button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm"
+                                            onclick="return confirm('Are you sure you want to delete this depreciation?')"> <i class="bi bi-trash"></i> </button>
                                     </form>
                                 </td>
                             </tr>

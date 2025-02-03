@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Transaction Dashboard</h1>
+    <h1>Dashboard Transaksi</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -13,12 +13,15 @@
             {{ session('error') }}
         </div>
     @endif
-    <a href="{{ route('dashboard') }}">Back</a>
+    <div class="mb-3">
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary px-4 py-2">Kembali</a>
+    </div>
+ 
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">
-                    Transaction Table
+                <h5 class="card-title" >
+                    Tabel Transaksi
                 </h5>
             </div>
             <div class="card-body">

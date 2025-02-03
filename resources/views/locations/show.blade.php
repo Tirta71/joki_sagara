@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Location Details</h1>
+    <h1 class="mb-4">Detail Lokasi</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -8,25 +8,34 @@
         </div>
     @endif
 
-    <div class="card">
-        <div class="card-header">
-            Location Information
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Informasi Lokasi</h4>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Code: {{ $location->code }}</h5>
-            <h5 class="card-title">Name: {{ $location->name }}</h5>
-            <p class="card-text">Address: {{ $location->address }}</p>
+            <dl class="row">
+                <dt class="col-sm-3">Code:</dt>
+                <dd class="col-sm-9">{{ $location->code }}</dd>
+
+                <dt class="col-sm-3">Name:</dt>
+                <dd class="col-sm-9">{{ $location->name }}</dd>
+
+                <dt class="col-sm-3">Address:</dt>
+                <dd class="col-sm-9">{{ $location->address }}</dd>
+            </dl>
         </div>
     </div>
 
-    <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-warning mt-3">Edit</a>
+    <!-- Action buttons -->
+    <div class="d-flex justify-content-start gap-3 mt-3">
+        <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-warning px-4 py-2">Ubah</a>
 
-    <form action="{{ route('locations.destroy', $location->id) }}" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger mt-3"
-            onclick="return confirm('Are you sure you want to delete this location?')">Delete</button>
-    </form>
+        <form action="{{ route('locations.destroy', $location->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger px-4 py-2" onclick="return confirm('Are you sure you want to delete this location?')">Hapus</button>
+        </form>
 
-    <a href="{{ route('locations.index') }}" class="btn btn-secondary mt-3">Back to List</a>
+        <a href="{{ route('locations.index') }}" class="btn btn-secondary px-4 py-2">Kembali</a>
+    </div>
 </x-layouts.dashboard-layout>

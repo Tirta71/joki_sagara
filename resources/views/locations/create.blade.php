@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Create New Location</h1>
+    <h1>Buat Lokasi Baru</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -36,7 +36,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Location</button>
-        <a href="{{ route('locations.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Buat Lokasi</button>
+        <a href="{{ route('locations.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </x-layouts.dashboard-layout>

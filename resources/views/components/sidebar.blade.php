@@ -77,7 +77,7 @@
                         </li>
                         <li class="submenu-item {{ Request::is('depreciations') || Request::is('depreciations/*') ? 'active' : '' }}">
                             <a href="{{ route('depreciations.index') }}" class="submenu-link">
-                                <span>Depresiasi</span>
+                                <span>Penyusutan</span>
                             </a>
                         </li>
                     </ul>
@@ -85,7 +85,7 @@
                 <li class="sidebar-item {{ Request::is('assets-sagara') || Request::is('assets-sagara/*') ? 'active' : '' }}">
                     <a href="{{ route('assets-sagara.index') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Asset</span>
+                        <span>Aset</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ Request::is('transactions') || Request::is('transactions/*') ? 'active' : '' }}">

@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Create New Category</h1>
+    <h1>Buat Kategori Baru</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -28,7 +28,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Category</button>
-        <a href="{{ route('categories.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Buat Kategori</button>
+        <a href="{{ route('categories.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </x-layouts.dashboard-layout>

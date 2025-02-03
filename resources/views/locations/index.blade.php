@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Locations Dashboard</h1>
+    <h1>Dashboard Lokasi</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -13,13 +13,17 @@
             {{ session('error') }}
         </div>
     @endif
-    <a href="{{ route('dashboard') }}">Back</a>
-    <a href="{{ route('locations.create') }}" class="btn btn-primary mb-5">Add New Location</a>
+    <div class="d-flex justify-content-between align-items-cente mb-4">
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary px-4 py-2">Kembali</a>
+        <a href="{{ route('locations.create') }}" class="btn btn-primary px-4 py-2 mb-0">Buat Lokasi Baru</a>
+    </div>
+    
+
     <section class="section">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    Accumulated Depreciation Table
+                    Tabel Lokasi
                 </h5>
             </div>
             <div class="card-body">
@@ -39,15 +43,24 @@
                                 <td>{{ $location->name }}</td>
                                 <td>{{ $location->address }}</td>
                                 <td>
-                                    <a href="{{ route('locations.show', $location->id) }}" class="btn btn-info">Show</a>
-                                    <a href="{{ route('locations.edit', $location->id) }}"
-                                        class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('locations.destroy', $location->id) }}" method="POST"
-                                        style="display:inline;">
+                                    <!-- Show Button -->
+                                    <a href="{{ route('locations.show', $location->id) }}" class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-eye"></i> 
+                                    </a>
+                    
+                                    <!-- Edit Button -->
+                                    <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-outline-warning btn-sm">
+                                        <i class="bi bi-pencil"></i> 
+                                    </a>
+                    
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('locations.destroy', $location->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Are you sure you want to delete this location?')">Delete</button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm"
+                                            onclick="return confirm('Are you sure you want to delete this location?')">
+                                            <i class="bi bi-trash"></i> 
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

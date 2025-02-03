@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Edit Depreciation</h1>
+    <h1>Ubah Penyusutan</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -30,7 +30,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Update Depreciation</button>
-        <a href="{{ route('depreciations.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Perbarui Penyusutan</button>
+        <a href="{{ route('depreciations.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </x-layouts.dashboard-layout>

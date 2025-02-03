@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Edit Location</h1>
+    <h1>Ubah Lokasi</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -35,7 +35,7 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Update Location</button>
-        <a href="{{ route('locations.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Perbarui Lokasi</button>
+        <a href="{{ route('locations.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </x-layouts.dashboard-layout>

@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Transaction Dashboard</h1>
+    <h1>Dashboard Riwayat Transaksi</h1>
 
     <!-- Display status messages -->
     @if (session('status'))
@@ -18,7 +18,7 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    History Transaction Table
+                    Tabel Riwayat Transaksi
                 </h5>
             </div>
             <div class="card-body">
