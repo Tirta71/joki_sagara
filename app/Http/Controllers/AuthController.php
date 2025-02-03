@@ -12,6 +12,10 @@ class AuthController extends Controller
 {
     protected $service;
 
+    // public function forgotPassword(){
+    //     return view('auth.forgot');
+    // }
+
     public function __construct(AuthService $service)
     {
         $this->service = $service;

@@ -32,6 +32,12 @@ Route::middleware('guest')->group(function () {
     })->name('register');
 
     Route::post('register', [AuthController::class, 'register']);
+
+    Route::get('forgot-password', function () {
+        return view('auth.forgot');
+    })->name('password.request');
+
+    Route::post('forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
 });
 
 Route::middleware('auth')->group(function () {

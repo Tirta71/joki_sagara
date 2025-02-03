@@ -12,8 +12,5 @@
         <a href="{{ route('assets-sagara.index') }}" class="btn btn-primary">View Asset</a>
     </div>
 
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
+   
 </x-layouts.dashboard-layout>

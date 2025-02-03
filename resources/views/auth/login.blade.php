@@ -55,9 +55,13 @@
                             Don't have an account?
                             <a href="{{ route('register') }}" class="font-bold">Sign up</a>.
                         </p>
+                        <p>
+                            <a href="{{ route('password.request') }}" class="font-bold">Forgot your password?</a>
+                        </p>
                     </div>
                 </div>
             </div>
+           
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
                     <div class="auth-logo">

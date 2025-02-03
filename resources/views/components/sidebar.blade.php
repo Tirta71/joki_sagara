@@ -41,7 +41,7 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
-
+        
                 <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
@@ -55,59 +55,61 @@
                         <span>Master</span>
                     </a>
                     <ul class="submenu">
-                        <li
-                            class="submenu-item {{ Request::is('locations') || Request::is('locations/*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Request::is('locations') || Request::is('locations/*') ? 'active' : '' }}">
                             <a href="{{ route('locations.index') }}" class="submenu-link">
-                                <span>Locations</span>
+                                <span>Lokasi</span>
                             </a>
                         </li>
-                        <li
-                            class="submenu-item {{ Request::is('categories') || Request::is('categories/*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Request::is('categories') || Request::is('categories/*') ? 'active' : '' }}">
                             <a href="{{ route('categories.index') }}" class="submenu-link">
-                                <span>Categories</span>
+                                <span>Kategori</span>
                             </a>
                         </li>
-                        <li
-                            class="submenu-item {{ Request::is('fixed_assets') || Request::is('fixed_assets/*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Request::is('fixed_assets') || Request::is('fixed_assets/*') ? 'active' : '' }}">
                             <a href="{{ route('fixed_assets.index') }}" class="submenu-link">
-                                <span>Fixed Assets</span>
+                                <span>Asset Tetap</span>
                             </a>
                         </li>
-                        <li
-                            class="submenu-item {{ Request::is('accumulated_depreciations') || Request::is('accumulated_depreciations/*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Request::is('accumulated_depreciations') || Request::is('accumulated_depreciations/*') ? 'active' : '' }}">
                             <a href="{{ route('accumulated_depreciations.index') }}" class="submenu-link">
-                                <span>Accumulated Depreciations</span>
+                                <span>Depresiasi Terkumpul</span>
                             </a>
                         </li>
-                        <li
-                            class="submenu-item {{ Request::is('depreciations') || Request::is('depreciations/*') ? 'active' : '' }}">
+                        <li class="submenu-item {{ Request::is('depreciations') || Request::is('depreciations/*') ? 'active' : '' }}">
                             <a href="{{ route('depreciations.index') }}" class="submenu-link">
-                                <span>Depreciations</span>
+                                <span>Depresiasi</span>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li
-                    class="sidebar-item {{ Request::is('assets-sagara') || Request::is('assets-sagara/*') ? 'active' : '' }}">
+                <li class="sidebar-item {{ Request::is('assets-sagara') || Request::is('assets-sagara/*') ? 'active' : '' }}">
                     <a href="{{ route('assets-sagara.index') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Assets</span>
+                        <span>Asset</span>
                     </a>
                 </li>
-                <li
-                    class="sidebar-item {{ Request::is('transactions') || Request::is('transactions/*') ? 'active' : '' }}">
+                <li class="sidebar-item {{ Request::is('transactions') || Request::is('transactions/*') ? 'active' : '' }}">
                     <a href="{{ route('transactions.index') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Transactions</span>
+                        <span>Transaksi</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ Request::is('histories') | Request::is('histories/*') ? 'active' : '' }}">
+                <li class="sidebar-item {{ Request::is('histories') || Request::is('histories/*') ? 'active' : '' }}">
                     <a href="{{ route('histories.index') }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Histories</span>
+                        <span>Riwayat</span>
                     </a>
                 </li>
+        
+                <li class="sidebar-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-light btn-lg w-100">Logout</button>
+                    </form>
+                </li>
+        
             </ul>
         </div>
+        
     </div>
 </div>
