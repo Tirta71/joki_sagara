@@ -1,5 +1,5 @@
 <x-layouts.dashboard-layout>
-    <h1>Edit Asset</h1>
+    <h1>Ubah Aset</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -165,8 +165,8 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Update Asset</button>
-        <a href="{{ route('assets-sagara.index') }}" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">Ubah Aset</button>
+        <a href="{{ route('assets-sagara.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 
         <script>
